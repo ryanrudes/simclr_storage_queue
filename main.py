@@ -24,6 +24,7 @@ tf.config.experimental_connect_to_cluster(resolver)
 # This is the TPU initialization code that has to be at the beginning.
 tf.tpu.experimental.initialize_tpu_system(resolver)
 print("All devices: ", tf.config.list_logical_devices('TPU'))
+strategy = tf.distribute.experimental.TPUStrategy(resolver)
 
 references = open("simclr_storage_queue/image_urls_decoded.txt", "r").read().split("\n")
 print(len(references), "images")
@@ -183,12 +184,12 @@ def train_epoch(model, references, max_queue_size, optimizer, criterion, augment
     # Training on the current batch
     if use_tqdm:
       for xi, xj in zip(tqdm(a, "Training", total = 1), b):
-        loss = train_step(xi, xj, model, optimizer, batch_size, criterion, negative_mask, temperature).numpy()
+        loss = strategy.run(train_step, args = (xi, xj, model, optimizer, batch_size, criterion, negative_mask, temperature)).numpy()
         print ("Loss:", loss)
         step_wise_losses.append(loss)
     else:
       for xi, xj in zip(a, b):
-        loss = train_step(xi, xj, model, optimizer, batch_size, criterion, negative_mask, temperature).numpy()
+        loss = strategy.run(train_step, args = (xi, xj, model, optimizer, batch_size, criterion, negative_mask, temperature)).numpy()
         print ("Loss:", loss)
         step_wise_losses.append(loss)
 
