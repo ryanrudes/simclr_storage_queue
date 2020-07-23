@@ -311,4 +311,4 @@ for thread in threads:
   thread.run(resnet_simclr, storage, max_queue_size, optimizer, criterion, augmentation_info, negative_mask, True, temperature)
 """
 
-resnet_simclr, epoch_wise_losses = train_epoch(resnet_simclr, references, max_queue_size, optimizer, criterion, augmentation_info, negative_mask, False, temperature)
+resnet_simclr, epoch_wise_losses = train_epoch(resnet_simclr, references, max_queue_size, optimizer, criterion, augmentation_info, negative_mask, True, temperature)
