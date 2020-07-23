@@ -1,7 +1,7 @@
 import random
 import tensorflow as tf
 import threading
-from tqdm.notebook import tqdm
+from tqdm import tqdm
 import urllib
 
 def download_and_preprocess(url):
