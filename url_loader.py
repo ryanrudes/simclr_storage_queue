@@ -8,6 +8,6 @@ def decode_url(url):
   return "https://storage.googleapis.com/simclr_dataset_bucket/simclr/data/Imagenet/Imagenet%20Divided/" + folder + "/" + synset + "/" + number + ".JPEG"
 
 with open("image_urls.txt", "w") as f:
-  f.write("\n".join([decode_url(url) for url in open("image_links.txt", "r").read().split("\n")]))
+  f.write("\n".join([decode_url(url) for url in open("~/image_links.txt", "r").read().split("\n")]))
 
 f.close()
