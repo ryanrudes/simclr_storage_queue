@@ -1,0 +1,5 @@
+tensorpack
+scikit-learn
+scipy
+opencv-python
+tensorflow
