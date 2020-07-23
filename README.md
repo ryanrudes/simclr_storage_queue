@@ -1,1 +1,1 @@
-# simclr_storage_queue
+# SimCLR + Storage-Queue Mechanism
