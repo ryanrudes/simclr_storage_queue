@@ -6,6 +6,5 @@ tensorflow
 numpy
 matplotlib
 threaded
-random
 tqdm
 urllib
