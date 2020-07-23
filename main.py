@@ -19,6 +19,12 @@ from tensorflow.keras.optimizers import *
 from tensorflow.keras.utils import to_categorical
 import tensorflow as tf
 
+resolver = tf.distribute.cluster_resolver.TPUClusterResolver(tpu = "ryanrudes")
+tf.config.experimental_connect_to_cluster(resolver)
+# This is the TPU initialization code that has to be at the beginning.
+tf.tpu.experimental.initialize_tpu_system(resolver)
+print("All devices: ", tf.config.list_logical_devices('TPU'))
+
 references = open("simclr_storage_queue/image_urls_decoded.txt", "r").read().split("\n")
 print(len(references), "images")
 
