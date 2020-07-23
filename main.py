@@ -1,6 +1,6 @@
-import simclr_storage_queue.augmentors as augmentors
-import simclr_storage_queue.data_loader as data
-import simclr_storage_queue.resnet as resnet_model
+import augmentors as augmentors
+import data_loader as data
+import resnet as resnet_model
 
 import numpy as np
 import matplotlib.pyplot as plt
