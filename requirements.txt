@@ -6,3 +6,6 @@ tensorflow
 numpy
 matplotlib
 threading
+random
+tqdm
+urllib
